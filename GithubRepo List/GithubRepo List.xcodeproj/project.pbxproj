@@ -8,9 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		9586379227E4A45300C75259 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9586379127E4A45300C75259 /* AppDelegate.swift */; };
-		9586379427E4A45300C75259 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9586379327E4A45300C75259 /* SceneDelegate.swift */; };
-		9586379627E4A45300C75259 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9586379527E4A45300C75259 /* ViewController.swift */; };
-		9586379927E4A45300C75259 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9586379727E4A45300C75259 /* Main.storyboard */; };
+		9586379627E4A45300C75259 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9586379527E4A45300C75259 /* ListViewController.swift */; };
 		9586379B27E4A45400C75259 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9586379A27E4A45400C75259 /* Assets.xcassets */; };
 		9586379E27E4A45400C75259 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9586379C27E4A45400C75259 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
@@ -18,9 +16,7 @@
 /* Begin PBXFileReference section */
 		9586378E27E4A45300C75259 /* GithubRepo List.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "GithubRepo List.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9586379127E4A45300C75259 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		9586379327E4A45300C75259 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		9586379527E4A45300C75259 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		9586379827E4A45300C75259 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		9586379527E4A45300C75259 /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		9586379A27E4A45400C75259 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9586379D27E4A45400C75259 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9586379F27E4A45400C75259 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -56,15 +52,53 @@
 		9586379027E4A45300C75259 /* GithubRepo List */ = {
 			isa = PBXGroup;
 			children = (
-				9586379127E4A45300C75259 /* AppDelegate.swift */,
-				9586379327E4A45300C75259 /* SceneDelegate.swift */,
-				9586379527E4A45300C75259 /* ViewController.swift */,
-				9586379727E4A45300C75259 /* Main.storyboard */,
-				9586379A27E4A45400C75259 /* Assets.xcassets */,
-				9586379C27E4A45400C75259 /* LaunchScreen.storyboard */,
+				958637A527E4A53B00C75259 /* App */,
 				9586379F27E4A45400C75259 /* Info.plist */,
+				958637A727E4A56F00C75259 /* Resources */,
+				958637A627E4A54900C75259 /* Scenes */,
+				958637A827E4A58A00C75259 /* Utils */,
 			);
 			path = "GithubRepo List";
+			sourceTree = "<group>";
+		};
+		958637A527E4A53B00C75259 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				9586379127E4A45300C75259 /* AppDelegate.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		958637A627E4A54900C75259 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				9586379C27E4A45400C75259 /* LaunchScreen.storyboard */,
+				9586379527E4A45300C75259 /* ListViewController.swift */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		958637A727E4A56F00C75259 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				9586379A27E4A45400C75259 /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		958637A827E4A58A00C75259 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				958637A927E4A59300C75259 /* Extensions */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		958637A927E4A59300C75259 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -127,7 +161,6 @@
 			files = (
 				9586379E27E4A45400C75259 /* LaunchScreen.storyboard in Resources */,
 				9586379B27E4A45400C75259 /* Assets.xcassets in Resources */,
-				9586379927E4A45300C75259 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -138,23 +171,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9586379627E4A45300C75259 /* ViewController.swift in Sources */,
+				9586379627E4A45300C75259 /* ListViewController.swift in Sources */,
 				9586379227E4A45300C75259 /* AppDelegate.swift in Sources */,
-				9586379427E4A45300C75259 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		9586379727E4A45300C75259 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				9586379827E4A45300C75259 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		9586379C27E4A45400C75259 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -217,7 +241,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -272,7 +296,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -287,16 +311,18 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = S524P8HHJH;
+				DEVELOPMENT_TEAM = 4425F79827;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "GithubRepo List/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -304,6 +330,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "baranGungor.GithubRepo-List";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -315,16 +342,18 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = S524P8HHJH;
+				DEVELOPMENT_TEAM = 4425F79827;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "GithubRepo List/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -332,6 +361,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "baranGungor.GithubRepo-List";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
