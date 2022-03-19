@@ -38,7 +38,7 @@
                             </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                        <color key="backgroundColor" white="0.21939648892773891" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.082352943720000002" green="0.090196087960000004" blue="0.12549020350000001" alpha="0.5" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstItem="pwo-84-iuo" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="7es-rW-3Ms"/>
                             <constraint firstItem="pwo-84-iuo" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="100" id="Abs-3M-BU2"/>

@@ -26,6 +26,7 @@
 		958637C727E5DBB200C75259 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 958637C627E5DBB200C75259 /* UIColor+Extension.swift */; };
 		958637CA27E5E22700C75259 /* BaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 958637C927E5E22700C75259 /* BaseTableViewCell.swift */; };
 		958637CC27E5E26000C75259 /* ListViewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 958637CB27E5E26000C75259 /* ListViewTableViewCell.swift */; };
+		958637CE27E5F3B400C75259 /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 958637CD27E5F3B400C75259 /* UIImageView+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +51,7 @@
 		958637C627E5DBB200C75259 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		958637C927E5E22700C75259 /* BaseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableViewCell.swift; sourceTree = "<group>"; };
 		958637CB27E5E26000C75259 /* ListViewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewTableViewCell.swift; sourceTree = "<group>"; };
+		958637CD27E5F3B400C75259 /* UIImageView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +106,7 @@
 			children = (
 				9586379C27E4A45400C75259 /* LaunchScreen.storyboard */,
 				958637AF27E4B96D00C75259 /* List */,
+				958637CF27E5F64E00C75259 /* RepositoryDetail */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -134,6 +137,7 @@
 				958637B927E5DA9B00C75259 /* UIViewController+Extension.swift */,
 				958637BB27E5DB0600C75259 /* UIView+Extension.swift */,
 				958637C627E5DBB200C75259 /* UIColor+Extension.swift */,
+				958637CD27E5F3B400C75259 /* UIImageView+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -184,6 +188,13 @@
 				958637C927E5E22700C75259 /* BaseTableViewCell.swift */,
 			);
 			path = Base;
+			sourceTree = "<group>";
+		};
+		958637CF27E5F64E00C75259 /* RepositoryDetail */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = RepositoryDetail;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -262,6 +273,7 @@
 			files = (
 				958637BA27E5DA9B00C75259 /* UIViewController+Extension.swift in Sources */,
 				958637CC27E5E26000C75259 /* ListViewTableViewCell.swift in Sources */,
+				958637CE27E5F3B400C75259 /* UIImageView+Extension.swift in Sources */,
 				958637AE27E4B60000C75259 /* NetworkManager.swift in Sources */,
 				9586379627E4A45300C75259 /* ListViewController.swift in Sources */,
 				958637C727E5DBB200C75259 /* UIColor+Extension.swift in Sources */,

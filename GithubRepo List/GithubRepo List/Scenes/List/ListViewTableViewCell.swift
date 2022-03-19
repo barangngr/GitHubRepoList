@@ -38,9 +38,11 @@ final class ListViewTableViewCell: BaseTableViewCell {
     }
     
     func configure(_ model: ListResponseModel) {
-        cellImageView.image = UIImage(named: "githubIcon")
         headerLabel.text = model.name ?? "--"
         descpLabel.text = model.owner?.login ?? "--"
+        if let avatarURL = model.owner?.avatarUrl {
+            cellImageView.loadImageUsingCache(withUrl: avatarURL)
+        }
     }
     
 }
