@@ -9,9 +9,10 @@ import Foundation
 
 protocol ListViewModelDelegate: AnyObject {
     func didFetchRepos(_ data: [ListResponseModel])
+    func showError(_ error: Error)
 }
 
-class ListViewModel {
+final class ListViewModel {
     
     // MARK: Properties
     weak var delegate: ListViewModelDelegate?
@@ -24,7 +25,7 @@ class ListViewModel {
             case .success(let response):
                 self.delegate?.didFetchRepos(response)
             case .failure(let error):
-                print(error)
+                self.delegate?.showError(error)
             }
         }
         
