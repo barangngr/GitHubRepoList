@@ -10,6 +10,7 @@ import Foundation
 final class NetworkManager {
     
     // MARK: Properties
+    typealias params = [String: String]?
     static var shared: NetworkManager = NetworkManager()
     private var urlSession = URLSession.shared
     private let baseURL = "https://api.github.com"
@@ -18,12 +19,26 @@ final class NetworkManager {
     private init() {}
     
     // MARK: Functions
-    func sendRequest<T: Codable>(model: BaseAPI, type: T.Type, completion: @escaping (Result<T, Error>) -> Void) {
+    func sendRequest<T: Codable>(model: BaseAPI, param: params = nil, type: T.Type, completion: @escaping (Result<T, Error>) -> Void) {
         
-        guard let url = URL(string: baseURL + model.path) else {
+        guard let urlComp = NSURLComponents(string: baseURL + model.path) else {
             completion(.failure(GeneralError.invalidURL))
             return
         }
+        
+        if let param = param {
+            var items = [URLQueryItem]()
+            for (key, value) in param {
+                items.append(URLQueryItem(name: key, value: value))
+            }
+            urlComp.queryItems = items
+        }
+        
+        guard let url = urlComp.url else {
+            completion(.failure(GeneralError.invalidURL))
+            return
+        }
+        
         var request = URLRequest(url: url)
         request.httpMethod = model.method.rawValue
         

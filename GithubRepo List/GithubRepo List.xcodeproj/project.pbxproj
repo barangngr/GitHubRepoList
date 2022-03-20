@@ -27,6 +27,10 @@
 		958637CA27E5E22700C75259 /* BaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 958637C927E5E22700C75259 /* BaseTableViewCell.swift */; };
 		958637CC27E5E26000C75259 /* ListViewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 958637CB27E5E26000C75259 /* ListViewTableViewCell.swift */; };
 		958637CE27E5F3B400C75259 /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 958637CD27E5F3B400C75259 /* UIImageView+Extension.swift */; };
+		958637D127E7216600C75259 /* RepositoryDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 958637D027E7216600C75259 /* RepositoryDetailViewController.swift */; };
+		958637D327E7222000C75259 /* RepositoryDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 958637D227E7222000C75259 /* RepositoryDetailViewModel.swift */; };
+		958637D527E7225100C75259 /* UserDetailResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 958637D427E7225100C75259 /* UserDetailResponseModel.swift */; };
+		958637D827E7238E00C75259 /* RepositoryDetailResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 958637D727E7238E00C75259 /* RepositoryDetailResponseModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +56,10 @@
 		958637C927E5E22700C75259 /* BaseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableViewCell.swift; sourceTree = "<group>"; };
 		958637CB27E5E26000C75259 /* ListViewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewTableViewCell.swift; sourceTree = "<group>"; };
 		958637CD27E5F3B400C75259 /* UIImageView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
+		958637D027E7216600C75259 /* RepositoryDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryDetailViewController.swift; sourceTree = "<group>"; };
+		958637D227E7222000C75259 /* RepositoryDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryDetailViewModel.swift; sourceTree = "<group>"; };
+		958637D427E7225100C75259 /* UserDetailResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailResponseModel.swift; sourceTree = "<group>"; };
+		958637D727E7238E00C75259 /* RepositoryDetailResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryDetailResponseModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +115,7 @@
 				9586379C27E4A45400C75259 /* LaunchScreen.storyboard */,
 				958637AF27E4B96D00C75259 /* List */,
 				958637CF27E5F64E00C75259 /* RepositoryDetail */,
+				958637D627E7236200C75259 /* UserDetail */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -193,8 +202,19 @@
 		958637CF27E5F64E00C75259 /* RepositoryDetail */ = {
 			isa = PBXGroup;
 			children = (
+				958637D027E7216600C75259 /* RepositoryDetailViewController.swift */,
+				958637D227E7222000C75259 /* RepositoryDetailViewModel.swift */,
+				958637D727E7238E00C75259 /* RepositoryDetailResponseModel.swift */,
 			);
 			path = RepositoryDetail;
+			sourceTree = "<group>";
+		};
+		958637D627E7236200C75259 /* UserDetail */ = {
+			isa = PBXGroup;
+			children = (
+				958637D427E7225100C75259 /* UserDetailResponseModel.swift */,
+			);
+			path = UserDetail;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -271,18 +291,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				958637D527E7225100C75259 /* UserDetailResponseModel.swift in Sources */,
 				958637BA27E5DA9B00C75259 /* UIViewController+Extension.swift in Sources */,
 				958637CC27E5E26000C75259 /* ListViewTableViewCell.swift in Sources */,
 				958637CE27E5F3B400C75259 /* UIImageView+Extension.swift in Sources */,
 				958637AE27E4B60000C75259 /* NetworkManager.swift in Sources */,
+				958637D127E7216600C75259 /* RepositoryDetailViewController.swift in Sources */,
 				9586379627E4A45300C75259 /* ListViewController.swift in Sources */,
 				958637C727E5DBB200C75259 /* UIColor+Extension.swift in Sources */,
 				958637CA27E5E22700C75259 /* BaseTableViewCell.swift in Sources */,
 				958637B127E4B98100C75259 /* ListResponseModel.swift in Sources */,
+				958637D327E7222000C75259 /* RepositoryDetailViewModel.swift in Sources */,
 				9586379227E4A45300C75259 /* AppDelegate.swift in Sources */,
 				958637AB27E4A90100C75259 /* ListViewModel.swift in Sources */,
 				958637B827E4D00300C75259 /* GitAPI.swift in Sources */,
 				958637B327E4C27100C75259 /* GeneralError.swift in Sources */,
+				958637D827E7238E00C75259 /* RepositoryDetailResponseModel.swift in Sources */,
 				958637BC27E5DB0600C75259 /* UIView+Extension.swift in Sources */,
 				958637B627E4CFEA00C75259 /* BaseAPI.swift in Sources */,
 			);

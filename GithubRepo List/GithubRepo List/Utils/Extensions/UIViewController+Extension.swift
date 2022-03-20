@@ -22,6 +22,7 @@ extension UIViewController {
         appearance.backgroundColor = backgroundColor
         appearance.titleTextAttributes = [.foregroundColor: textColor]
 
+        navigationController?.navigationBar.tintColor = textColor
         navigationController?.navigationBar.standardAppearance = appearance
         navigationController?.navigationBar.scrollEdgeAppearance = appearance
         navigationController?.navigationBar.compactAppearance = appearance
@@ -31,6 +32,27 @@ extension UIViewController {
         let backButton = UIBarButtonItem()
         backButton.title = text
         navigationController?.navigationBar.topItem?.backBarButtonItem = backButton
+    }
+    
+    func showActivityIndicator() {
+        let activityIndicator = UIActivityIndicatorView()
+        activityIndicator.style = .large
+        activityIndicator.frame = CGRect(x: 0, y: 0, width: 80, height: 80)
+        activityIndicator.color = .gray
+        activityIndicator.tag = 544
+        activityIndicator.center = view.center
+        view.addSubview(activityIndicator)
+        activityIndicator.layer.zPosition = 999
+        activityIndicator.startAnimating()
+    }
+    
+    func hideActivityIndicator() {
+        DispatchQueue.main.async {
+            if let activityIndicator = self.view.viewWithTag(544) as? UIActivityIndicatorView {
+                activityIndicator.stopAnimating()
+                activityIndicator.removeFromSuperview()
+            }
+        }
     }
     
 }

@@ -1,14 +1,14 @@
 //
-//  ViewController.swift
+//  RepositoryDetailViewController.swift
 //  GithubRepo List
 //
-//  Created by Baran Gungor on 18.03.2022.
+//  Created by Baran Gungor on 20.03.2022.
 //
 
 import UIKit
 
-final class ListViewController: UIViewController {
-
+class RepositoryDetailViewController: UIViewController {
+    
     // MARK: Properties
     private let tableView: UITableView = {
         let tableView = UITableView()
@@ -19,8 +19,15 @@ final class ListViewController: UIViewController {
         return tableView
     }()
     
-    private var dataSource = [ListResponseModel]()
-    private var viewModel = ListViewModel()
+    private var dataSource = [RepositoryDetailResponseModel]()
+    private var viewModel = RepositoryDetailViewModel()
+    
+    // MARK: Initiliaze
+    convenience init(_ userName: String?, repoName: String?) {
+        self.init()
+        viewModel.repoName = repoName
+        viewModel.userName = userName
+    }
     
     // MARK: LifeCycle
     override func viewDidLoad() {
@@ -30,31 +37,30 @@ final class ListViewController: UIViewController {
         tableView.delegate = self
         viewModel.delegate = self
         
-        viewModel.fethcRepos()
+        showActivityIndicator()
+        viewModel.fetchUserRepos()
         configureViews()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        title = "Repository Detail"
         setNavColors(.navColor, textColor: .white)
-        title = "Repositories"
+        setNavBackButton()
     }
-    
+  
     // MARK: Functions
     private func configureViews() {
         view.addSubview(views: tableView)
         tableView.fill(.all)
     }
-
 }
 
-// MARK: - Extensions
-extension ListViewController: ListViewModelDelegate {
-    func didFetchRepos(_ data: [ListResponseModel]) {
-        dataSource = data
-        DispatchQueue.main.async {
-            self.tableView.reloadData()
-        }
+// MARK: - Extension
+extension RepositoryDetailViewController: RepositoryDetailViewModelDelegate {
+    func didFetchRepos(_ data: RepositoryDetailResponseModel) {
+        print(data)
+        hideActivityIndicator()
     }
     
     func showError(_ error: Error) {
@@ -62,23 +68,14 @@ extension ListViewController: ListViewModelDelegate {
     }
 }
 
-extension ListViewController: UITableViewDataSource, UITableViewDelegate {
+extension RepositoryDetailViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return dataSource.count
+        return 10
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "listViewTableViewCell", for: indexPath as IndexPath) as! ListViewTableViewCell
-        cell.configure(dataSource[indexPath.row])
-        cell.selectionStyle = .none
         return cell
     }
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let userName = dataSource[indexPath.row].owner?.login
-        let repoName = dataSource[indexPath.row].name
-        let vc = RepositoryDetailViewController(userName, repoName: repoName)
-        navigationController?.pushViewController(vc, animated: true)
-    }
 }
-
