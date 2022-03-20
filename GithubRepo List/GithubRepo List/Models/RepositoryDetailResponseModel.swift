@@ -38,3 +38,15 @@ struct RepositoryDetailResponseModel: Codable {
         case visibility
     }
 }
+
+// MARK: - RepositoryDetailModel
+struct RepositoryDetailModel {
+    let repoInfos: [RepoInfoModel]?
+    let avatarURL: String?
+}
+
+// MARK: - RepoInfoModel
+struct RepoInfoModel {
+    let key: String?
+    let value: String?
+}

@@ -7,19 +7,19 @@
 
 import UIKit
 
-class RepositoryDetailViewController: UIViewController {
+final class RepositoryDetailViewController: UIViewController {
     
     // MARK: Properties
     private let tableView: UITableView = {
-        let tableView = UITableView()
-        tableView.register(ListViewTableViewCell.self, forCellReuseIdentifier: "listViewTableViewCell")
+        let tableView = UITableView(frame: .zero, style: .grouped)
+        tableView.register(RepositoryDetailViewTableViewCell.self, forCellReuseIdentifier: "repositoryDetailViewTableViewCell")
         tableView.backgroundColor = .clear
         tableView.separatorStyle = .none
-        tableView.contentInset.top = 5
+        tableView.showsVerticalScrollIndicator = false
         return tableView
     }()
     
-    private var dataSource = [RepositoryDetailResponseModel]()
+    private var dataSource: RepositoryDetailModel?
     private var viewModel = RepositoryDetailViewModel()
     
     // MARK: Initiliaze
@@ -58,9 +58,12 @@ class RepositoryDetailViewController: UIViewController {
 
 // MARK: - Extension
 extension RepositoryDetailViewController: RepositoryDetailViewModelDelegate {
-    func didFetchRepos(_ data: RepositoryDetailResponseModel) {
-        print(data)
+    func didFetchRepos(_ data: RepositoryDetailModel) {
         hideActivityIndicator()
+        dataSource = data
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+        }
     }
     
     func showError(_ error: Error) {
@@ -70,12 +73,31 @@ extension RepositoryDetailViewController: RepositoryDetailViewModelDelegate {
 
 extension RepositoryDetailViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return dataSource?.repoInfos?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "listViewTableViewCell", for: indexPath as IndexPath) as! ListViewTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "repositoryDetailViewTableViewCell", for: indexPath as IndexPath) as! RepositoryDetailViewTableViewCell
+        cell.configure(dataSource?.repoInfos?[indexPath.row])
+        cell.selectionStyle = .none
         return cell
     }
     
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let view = RepositoryTableHeaderView()
+        view.delegate = self
+        view.configure(dataSource?.avatarURL)
+        return dataSource == nil ? nil : view
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 350
+    }
+    
+}
+
+extension RepositoryDetailViewController: RepositoryTableHeaderViewDelegate {
+    func didTapImage() {
+        print("go UserDetail")
+    }
 }
