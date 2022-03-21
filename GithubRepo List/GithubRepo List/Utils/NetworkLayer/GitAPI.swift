@@ -26,3 +26,7 @@ enum GitAPI: BaseAPI {
     }
     
 }
+
+/*
+ - When the GithubAPI doc was examined, necessary data could be get different endpoints, but I only used these 3 endpoints, thinking that I had to go to the endpoints specified in the mail sent as per the case.
+ */

@@ -15,8 +15,8 @@ enum GeneralError: Error {
 extension GeneralError: LocalizedError {
     var errorDescription: String? {
         switch self {
-        case .invalidURL:   return "Geçersiz URL, lütfen daha sonra tekrar deneyin."
-        case .invalidData:  return "Geçersiz Data, lütfen daha sonra tekrar deneyin."
+        case .invalidURL:   return "Invalid URL, please try again later."
+        case .invalidData:  return "Invalid Data, please try again later."
         }
     }
 }

@@ -14,12 +14,6 @@ struct ListResponseModel: Codable {
     let nodeId: String?
     let isPrivate: Bool?
     let owner: OwnerResponseModel?
-    let htmlUrl: String?
-    let description: String?
-    let fork: Bool?
-    let url: String?
-    let forksUrl: String?
-    let keysUrl: String?
     
     enum CodingKeys: String, CodingKey {
         case id
@@ -28,12 +22,6 @@ struct ListResponseModel: Codable {
         case nodeId = "node_id"
         case isPrivate = "private"
         case owner
-        case htmlUrl = "html_url"
-        case description
-        case fork
-        case url
-        case forksUrl = "forks_url"
-        case keysUrl = "keys_url"
     }
 }
 

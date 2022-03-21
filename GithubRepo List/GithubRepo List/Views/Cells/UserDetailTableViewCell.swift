@@ -17,6 +17,11 @@ final class UserDetailTableViewCell: BaseTableViewCell {
         return view
     }()
     
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        leftView.backgroundColor = .random()
+    }
+    
     // MARK: Functions
     override func commonInit() {
         super.commonInit()
@@ -38,9 +43,9 @@ final class UserDetailTableViewCell: BaseTableViewCell {
     }
     
     func configure(_ model: RepositoryDetailResponseModel?) {
-        leftView.backgroundColor = .random()
-        headerLabel.text = model?.name ?? "--"
-        descpLabel.text = model?.language ?? "--"
+        guard let model = model else { return }
+        headerLabel.text = model.name ?? "--"
+        descpLabel.text = model.language ?? "--"
     }
     
 }

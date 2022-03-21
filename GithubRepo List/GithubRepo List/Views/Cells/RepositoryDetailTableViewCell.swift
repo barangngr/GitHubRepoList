@@ -35,8 +35,8 @@ final class RepositoryDetailViewTableViewCell: BaseTableViewCell {
     
     func configure(_ model: RepoInfoModel?) {
         guard let model = model else { return }
-        headerLabel.text = model.key ?? ""
-        descpLabel.text = model.value ?? ""
+        headerLabel.text = model.key ?? "--"
+        descpLabel.text = model.value ?? "--"
     }
     
 }

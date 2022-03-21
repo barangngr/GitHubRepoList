@@ -9,11 +9,13 @@ import UIKit
 
 extension UIViewController {
     
-    func showAlert(_ message: String, title: String = "Dikkat", okAction: ((UIAlertAction) -> Void)? = nil) {
+    func showAlert(_ message: String, title: String = "Warning", okAction: ((UIAlertAction) -> Void)? = nil) {
         let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        let okAction = UIAlertAction(title: "Tamam", style: .default, handler: okAction)
+        let okAction = UIAlertAction(title: "Okey", style: .default, handler: okAction)
         alertController.addAction(okAction)
-        self.present(alertController, animated: true, completion: nil)
+        DispatchQueue.main.async {
+            self.present(alertController, animated: true, completion: nil)
+        }
     }
     
     func setNavColors(_ backgroundColor: UIColor, textColor: UIColor) {
@@ -21,7 +23,7 @@ extension UIViewController {
         appearance.configureWithDefaultBackground()
         appearance.backgroundColor = backgroundColor
         appearance.titleTextAttributes = [.foregroundColor: textColor]
-
+        
         navigationController?.navigationBar.tintColor = textColor
         navigationController?.navigationBar.standardAppearance = appearance
         navigationController?.navigationBar.scrollEdgeAppearance = appearance
