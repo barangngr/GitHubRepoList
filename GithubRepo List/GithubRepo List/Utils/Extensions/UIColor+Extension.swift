@@ -16,4 +16,11 @@ extension UIColor {
     static let headerColor = #colorLiteral(red: 0.7921568627, green: 0.8196078431, blue: 0.8470588235, alpha: 1)
     static let descpColor = #colorLiteral(red: 0.4862745098, green: 0.5098039216, blue: 0.5411764706, alpha: 1)
     
+    static func random() -> UIColor {
+        return UIColor(red: .random(in: 0...1),
+                       green: .random(in: 0...1),
+                       blue: .random(in: 0...1),
+                       alpha: 1.0)
+      }
+    
 }

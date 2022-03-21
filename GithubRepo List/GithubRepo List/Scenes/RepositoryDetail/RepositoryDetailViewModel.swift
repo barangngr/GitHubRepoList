@@ -40,7 +40,6 @@ final class RepositoryDetailViewModel {
                 setDataSource(repo)
             }
         } else {
-            print("call again")
             page += 1
             fetchUserRepos()
         }

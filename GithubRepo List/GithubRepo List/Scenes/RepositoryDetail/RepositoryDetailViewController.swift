@@ -98,6 +98,8 @@ extension RepositoryDetailViewController: UITableViewDelegate, UITableViewDataSo
 
 extension RepositoryDetailViewController: RepositoryTableHeaderViewDelegate {
     func didTapImage() {
-        print("go UserDetail")
+        let vc = UserDetailViewController()
+        vc.userName = viewModel.userName
+        navigationController?.pushViewController(vc, animated: true)
     }
 }
