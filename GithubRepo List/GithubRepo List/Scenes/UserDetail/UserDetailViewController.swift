@@ -55,7 +55,6 @@ final class UserDetailViewController: UIViewController {
 extension UserDetailViewController: UserDetailViewModelDelegate {
     func didFetchUser(_ data: UserDetailResponseModel) {
         hideActivityIndicator()
-//        dataSource = data
         DispatchQueue.main.async {
             self.tableView.reloadData()
         }
@@ -91,9 +90,10 @@ extension UserDetailViewController: UITableViewDelegate, UITableViewDataSource {
         view.configure(headerData)
         return headerData == nil ? nil : view
     }
-    
-    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        if indexPath.row == viewModel.userReposResponse.count - 2 {
+        
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let position = scrollView.contentOffset.y
+        if position > (tableView.contentSize.height - 100 - scrollView.frame.size.height) && !viewModel.isPagination {
             viewModel.fetchUserRepos(userName)
         }
     }

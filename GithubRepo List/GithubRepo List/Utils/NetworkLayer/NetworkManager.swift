@@ -41,6 +41,8 @@ final class NetworkManager {
         
         var request = URLRequest(url: url)
         request.httpMethod = model.method.rawValue
+        // Added Token for Rate limits
+//        request.setValue("Token <Your Token>", forHTTPHeaderField: "Authorization")
         
         urlSession.dataTask(with: request) { (data, response, error) in
             if let error = error {

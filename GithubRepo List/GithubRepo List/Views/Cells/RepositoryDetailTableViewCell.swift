@@ -21,7 +21,6 @@ final class RepositoryDetailViewTableViewCell: BaseTableViewCell {
         descpLabel.fill(.horizontal, constant: 15)
         descpLabel.topAnchor.constraint(equalTo: headerLabel.bottomAnchor, constant: -2).isActive = true
         descpLabel.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: -5).isActive = true
-        descpLabel.heightAnchor.constraint(equalToConstant: 20).isActive = true
         
         setLabels()
     }
