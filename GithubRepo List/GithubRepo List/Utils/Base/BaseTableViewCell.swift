@@ -33,7 +33,7 @@ class BaseTableViewCell: UITableViewCell {
         label.textColor = .descpColor
         label.font = UIFont(name: "Roboto-Medium", size: 12)
         label.textAlignment = .left
-        label.adjustsFontSizeToFitWidth = true
+        label.numberOfLines = 0
         return label
     }()
     

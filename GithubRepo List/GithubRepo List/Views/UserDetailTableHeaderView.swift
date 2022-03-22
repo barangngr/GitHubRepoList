@@ -34,6 +34,7 @@ final class UserDetailTableHeaderView: UIView {
     }()
     
     let descpNameLabel = DescpLabel()
+    let descpEmailLabel = DescpLabel()
     let descpLocationLabel = DescpLabel()
     let descpCompanyLabel = DescpLabel()
     let descpFollowersLabel = DescpLabel()
@@ -56,7 +57,7 @@ final class UserDetailTableHeaderView: UIView {
         addSubview(views: containerView)
         containerView.fill(.all, constant: 10)
         
-        containerView.addSubview(views: imageView, descpNameLabel, descpLocationLabel, descpCompanyLabel, descpFollowersLabel)
+        containerView.addSubview(views: imageView, descpNameLabel, descpEmailLabel, descpLocationLabel, descpCompanyLabel, descpFollowersLabel)
         imageView.topAnchor.constraint(equalTo: containerView.topAnchor, constant: 10).isActive = true
         imageView.centerXAnchor.constraint(equalTo: containerView.centerXAnchor).isActive = true
         imageView.heightAnchor.constraint(equalToConstant: 100).isActive = true
@@ -65,8 +66,11 @@ final class UserDetailTableHeaderView: UIView {
         descpNameLabel.fill(.horizontal, constant: 5)
         descpNameLabel.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 15).isActive = true
         
+        descpEmailLabel.fill(.horizontal, constant: 5)
+        descpEmailLabel.topAnchor.constraint(equalTo: descpNameLabel.bottomAnchor, constant: 5).isActive = true
+        
         descpLocationLabel.fill(.horizontal, constant: 5)
-        descpLocationLabel.topAnchor.constraint(equalTo: descpNameLabel.bottomAnchor, constant: 5).isActive = true
+        descpLocationLabel.topAnchor.constraint(equalTo: descpEmailLabel.bottomAnchor, constant: 5).isActive = true
         
         descpCompanyLabel.fill(.horizontal, constant: 5)
         descpCompanyLabel.topAnchor.constraint(equalTo: descpLocationLabel.bottomAnchor, constant: 5).isActive = true
@@ -80,6 +84,7 @@ final class UserDetailTableHeaderView: UIView {
         guard let data = data, let avatarURL = data.avatarUrl else { return }
         imageView.loadImageUsingCache(withUrl: avatarURL)
         descpNameLabel.text = data.name
+        descpEmailLabel.text = data.email
         descpLocationLabel.text = data.location
         descpCompanyLabel.text = data.company
         descpFollowersLabel.text = "Followers: \(data.followers ?? 0)   Following: \(data.following ?? 0)"

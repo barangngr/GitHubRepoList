@@ -41,6 +41,8 @@ final class NetworkManager {
         
         var request = URLRequest(url: url)
         request.httpMethod = model.method.rawValue
+        // Added Token for Rate limits, token expires on Thu, Apr 21 2022.
+        request.setValue("Token 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", forHTTPHeaderField: "Authorization")
         
         urlSession.dataTask(with: request) { (data, response, error) in
             if let error = error {
